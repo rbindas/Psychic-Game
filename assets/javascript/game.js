@@ -5,36 +5,41 @@ var comppick = [];
 var userguess =[];
 var wins =[];
 var loses = [];
-var guessleft = 9;
+var numguesses = 9;
+var currentguesses = [];
 
 
 
-//Funtions
-function rewriteguessleft() {
-	console.log("Guess's left " + guessleft);
+function restartGame(){
+	numguesses = 9;
+	currentguesses = [];
+
 }
 
-function randLetter() {
-  var comppick = letters[Math.floor(Math.random() * letters.length)];
-  
-  	return comppick;
-  }
+//Listens for key being pressed
+document.onkeyup = function(event){
+			
+	// Captures the key press, converts it to lowercase, and saves it to a variable.
+	var userguess = event.key.toLowerCase();
+    // Computers pick
+  	var comppick = letters[Math.floor(Math.random() * letters.length)];
 
- function userguess () {
- 	var userguess = document.onkeyup = function(event) {
+ 	console.log("Computer pick " + comppick);
+ 	console.log("User Guess " + userguess);
+};
 
-        // Captures the key press, converts it to lowercase, and saves it to a variable.
-        var letter = String.fromCharCode(event.keyCode).toLowerCase();
-
-        if (letter === comppick) {
-        	wins = wins++;
-        	rewriteguessleft();
-        else {
-        	if(guessleft = 9)
-
-        	}
-        }
- }
+if (userguess === comppick) {
+        	wins++;
+        	restartGame();
+        	conole.log(wins);
+    } else { if(numguesses < 9) {
+    			console.log (loses);
+    		} else {
+    			loses++;
+    		};
+    	
+};
+ 
 
 
 
