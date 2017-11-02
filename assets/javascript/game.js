@@ -1,47 +1,62 @@
-//Variables
+var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var comppick = [];
-var userguess =[];
-var wins =[];
-var loses = [];
-var numguesses = 9;
-var currentguesses = [];
+var wins = 0;
+var losses = 0;
+var guesses = 9;
+var guessesLeft = 9;
+var guessedLetters = [];
+var letterToGuess = [];
+
+// randomizer
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+// limits guesses to 9
+var updateGuessesLeft = function() {
+
+  document.querySelector('#guessLeft').innerHTML = "Number of guesses remaining: " + guessesLeft;
+};
+
+var updateLetterToGuess = function() {
+  this.letterToGuess = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
+};
+var updateGuessesSoFar = function() {
+
+  document.querySelector('#let').innerHTML = "Your guesses so far: " + guessedLetters.join(', ');
+};
 
 
+var reset = function() {
+  totalGuesses = 9;
+  guessesLeft = 9;
+  guessedLetters = [];
 
-function restartGame(){
-	numguesses = 9;
-	currentguesses = [];
-
+  updateLetterToGuess();
+  updateGuessesLeft();
+  updateGuessesSoFar();
 }
 
-//Listens for key being pressed
-document.onkeyup = function(event){
-			
-	// Captures the key press, converts it to lowercase, and saves it to a variable.
-	var userguess = event.key.toLowerCase();
-    // Computers pick
-  	var comppick = letters[Math.floor(Math.random() * letters.length)];
+updateLetterToGuess();
+updateGuessesLeft();
 
- 	console.log("Computer pick " + comppick);
- 	console.log("User Guess " + userguess);
+document.onkeyup = function(event) {
+    guessesLeft--;
+  var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+  guessedLetters.push(userGuess);
+  updateGuessesLeft();
+  updateGuessesSoFar();
+
+        if (guessesLeft > 0){
+            if (userGuess == letterToGuess){
+                wins++;
+                document.querySelector('#wins').innerHTML = "Wins: " + wins;
+                alert("Psychic!");
+                reset();
+            }
+        }else if(guessesLeft == 0){
+            losses++;
+            document.querySelector('#losses').innerHTML = "Losses: " + losses;
+            alert("Sorry, you're psychic, try again");
+            reset();
+        }
 };
-
-if (userguess === comppick) {
-        	wins++;
-        	restartGame();
-        	conole.log(wins);
-    } else { if(numguesses < 9) {
-    			console.log (loses);
-    		} else {
-    			loses++;
-    		};
-    	
-};
- 
-
-
-
-
-

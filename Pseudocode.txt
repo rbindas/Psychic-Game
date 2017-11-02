@@ -1,9 +1,0 @@
-1. computer selects a letter at random and keeps it hidden		
-2. user selects letter 
-3. user gets 9 chances to match computer choice
-a. user guesses are displayed in the guesses section
-b. if user & computer match, Wins increases by 1, reset guesses so far to 0
-c. If user & computer do not match
-i. Record guess
-ii. Number of guesses decrease by 1
-iii. When number of guesses =0, then loses increases by 1
