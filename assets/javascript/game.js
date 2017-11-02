@@ -3,7 +3,7 @@ var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l
 var wins = 0;
 var losses = 0;
 var guesses = 9;
-var guessesLeft = 9;
+var guessLeft = 9;
 var guessedLetters = [];
 var letterToGuess = [];
 
@@ -13,7 +13,7 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 // limits guesses to 9
 var updateGuessesLeft = function() {
 
-  document.querySelector('#guessLeft').innerHTML = "Number of guesses remaining: " + guessesLeft;
+  document.querySelector('#guessLeft').innerHTML = "Number of guesses remaining: " + guessLeft;
 };
 
 var updateLetterToGuess = function() {
@@ -27,7 +27,7 @@ var updateGuessesSoFar = function() {
 
 var reset = function() {
   totalGuesses = 9;
-  guessesLeft = 9;
+  guessLeft = 9;
   guessedLetters = [];
 
   updateLetterToGuess();
@@ -35,25 +35,22 @@ var reset = function() {
   updateGuessesSoFar();
 }
 
-updateLetterToGuess();
-updateGuessesLeft();
-
 document.onkeyup = function(event) {
-    guessesLeft--;
+    guessLeft--;
   var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
   guessedLetters.push(userGuess);
   updateGuessesLeft();
   updateGuessesSoFar();
 
-        if (guessesLeft > 0){
+        if (guessLeft > 0){
             if (userGuess == letterToGuess){
                 wins++;
                 document.querySelector('#wins').innerHTML = "Wins: " + wins;
                 alert("Psychic!");
                 reset();
             }
-        }else if(guessesLeft == 0){
+        }else if(guessLeft == 0){
             losses++;
             document.querySelector('#losses').innerHTML = "Losses: " + losses;
             alert("Sorry, you're psychic, try again");
