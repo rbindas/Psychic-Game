@@ -1,0 +1,50 @@
+body {
+  
+  line-height: 30px;
+  color: #220B32;
+    
+}
+
+header {
+	font-family: 'Chela One', cursive;
+	padding: 75px;
+	text-align: center;
+	font-size: 100px;
+
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  clear: both;
+  border: 10px groove #ffd700;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 49px;
+  
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 49px;
+
+}
+
+li {
+	text-align: left;
+	font-size: 20px;
+}
+h3 {
+	text-align: center;
+}
+
+.footer {
+  bottom: 0;
+  font-size: 12px;
+  text-align: left;
+  padding-top: 20px;
+}
+  

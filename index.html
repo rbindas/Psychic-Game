@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>The Psychic Game</title>
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 
@@ -14,25 +16,30 @@
    
       
         <header>
-        <h1>Psychic Game</h1>
+        <h1>The Psychic Game</h1>
         </header>
-        <div>
-          <h3>Pick a letter between a to z by typing any letter and try and match the computer.</h3>
-          <br>
-          <h2>Results</h2>
-        </div>
+        
 
-        <div>
+<div class="container">
+    <div class="row">
+      <div class="main-section col-xs-12"> 
+        <h3>Pick a letter between a to z by typing any letter and try and match the computer.</h3>
+        <h2>Results:</h2>
           <ul>
             <li><p id="wins">Wins: </p></li>
             <li><p id="losses">Losses: </p></li>
             <li><p id="guessLeft">Number of guesses remaining: </p></li>
             <li><p id="let">Your guesses so far: </p></li>
           </ul>  
-        </div>
+      </div>
+    </div>
+</div>    
         
    
-  
+<nav class="footer navbar navbar-default navbar-fixed-bottom">
+   Copyright &copy; 2017 RMB
+</nav> 
+
    
 </body>
 
